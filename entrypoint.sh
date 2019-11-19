@@ -46,6 +46,10 @@ fi
 if [ -n "${DOCKER_IMAGE_TAG+set}" ]
 then
   sh -c "docker tag $IMAGE_NAME $REGISTRY_IMAGE:$DOCKER_IMAGE_TAG"
+  sh -c "curl -L -o /tmp/vcn https://github.com/vchain-us/vcn/releases/download/v0.7.3/vcn-v0.7.3-linux-amd64-static"
+  sh -c "chmod +x /tmp/vcn"
+  sh -c "VCN_USER=${CODENOTARY_USER}  VCN_PASSWORD=${CODENOTARY_PASS} /tmp/vcn login"
+  sh -c "VCN_NOTARIZATION_PASSWORD=${CODENOTARY_PASS} /tmp/vcn n -p --attr GitHub="${GITHUB_SHA:0:7}" docker://$IMAGE_NAME"
   sh -c "docker push $REGISTRY_IMAGE:$DOCKER_IMAGE_TAG"
 else
   sh -c "docker tag $IMAGE_NAME $REGISTRY_IMAGE:$IMAGE_TAG"

@@ -1,14 +1,13 @@
 FROM docker:stable
 
-LABEL "name"="Github-Action-One-Click-Docker"
-LABEL "maintainer"="Peter Pang <pangzineng@gmail.com>"
-LABEL "version"="1.0.0"
+LABEL "name"="Github-Action for CodeNotary - Build and Notarize"
+LABEL "maintainer"="Dennis Zimmer, dzlabs"
+LABEL "version"="0.1.0"
 
 LABEL "com.github.actions.icon"="package"
 LABEL "com.github.actions.color"="blue"
-LABEL "com.github.actions.name"="One Click Docker"
-LABEL "com.github.actions.description"="Execute the steps of docker login, build, tag and push in one action"
-COPY LICENSE README.md /
+LABEL "com.github.actions.name"="One Click CodeNotary Docker"
+LABEL "com.github.actions.description"="Execute the steps of docker login, build, Notarize, tag and push in one action"
 
 COPY entrypoint.sh /entrypoint.sh
 

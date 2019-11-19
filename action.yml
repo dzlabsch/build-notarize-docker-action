@@ -1,0 +1,13 @@
+name: 'build-notarize-docker-action'
+
+branding:
+  icon: 'box'
+  color: 'green'
+
+description: 'Not sure yet.'
+
+author: 'localheinz'
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'

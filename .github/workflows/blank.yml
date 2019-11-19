@@ -35,8 +35,8 @@ jobs:
      
       - name: "Notarize Docker Image"
         run: |
-             VCN_USER=${CODENOTARY_USER}  VCN_PASSWORD=${CODENOTARY_PASS} /tmp/vcn login
-             VCN_NOTARIZATION_PASSWORD=${CODENOTARY_PASS} /tmp/vcn n -p --attr GitHub="${GITHUB_SHA:0:7}" docker://${DOCKER_IMAGE}:latest 
+             VCN_USER=${{ secrets.CODENOTARY_USER }}  VCN_PASSWORD=${{ secrets.CODENOTARY_PASS }} /tmp/vcn login
+             VCN_NOTARIZATION_PASSWORD=${{ secrets.CODENOTARY_PASS }} /tmp/vcn n -p --attr GitHub="${GITHUB_SHA:0:7}" docker://${DOCKER_IMAGE}:latest 
 
       - name: "Docker Login"
         if: "'refs/heads/master' == github.ref || startsWith(github.ref, 'refs/tags/')"

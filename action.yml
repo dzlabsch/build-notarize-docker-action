@@ -4,9 +4,9 @@ branding:
   icon: 'box'
   color: 'green'
 
-description: 'Not sure yet.'
+description: 'tbd'
 
-author: 'localheinz'
+author: 'DZ'
 
 runs:
   using: 'docker'
